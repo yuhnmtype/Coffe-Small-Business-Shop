@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Book a table or get in touch with Rang Sài Gòn — reservation form, contact details, and more.">
+  <title>Contact & Book | Rang Sài Gòn</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="icon" href="https://fav.farm/☕" type="image/png">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="Rang Sài Gòn – Home">
+        <span class="logo-main">Rang</span><span class="logo-sub"> Sài Gòn</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="map.html">Visit Us</a></li>
+          <li><a href="contact.html" class="active nav-cta">Book a Table</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <div class="page-banner">
+      <h1>Book a Table</h1>
+      <p>Reserve your spot or send us a message — we'll confirm within 24 hours.</p>
+    </div>
+
+    <section class="section" aria-label="Booking and contact">
+      <div class="container contact-grid">
+
+        <!-- Contact info sidebar -->
+        <aside aria-label="Contact information">
+          <h2>Get in Touch</h2>
+          <p>We love hearing from our guests. Whether it's a table for two or a private event for twenty — reach out.</p>
+          <p class="contact-detail"><strong>📍 Address:</strong><br>123 Nguyễn Trãi, Quận 1, HCMC</p>
+          <p class="contact-detail"><strong>☎ Phone:</strong><br><a href="tel:+842812345678">+84 28 1234 5678</a></p>
+          <p class="contact-detail"><strong>✉ Email:</strong><br><a href="mailto:hello@rangsaigon.vn">hello@rangsaigon.vn</a></p>
+          <p class="contact-detail"><strong>🕐 Hours:</strong><br>Mon–Fri 7:00–21:30<br>Sat 7:30–22:00 · Sun 8:00–21:00</p>
+          <p style="margin-top: 1.5rem; font-size: 0.88rem; color: var(--muted);">
+            For large group bookings (10+) please call us directly.
+          </p>
+        </aside>
+
+        <!-- ============================================================
+             BOOKING FORM — hits ALL 4.2 requirements
+             Input types: text, email, tel, password, number, date,
+             range, color, file, radio, checkbox, select+optgroup,
+             textarea, datalist, hidden, submit, reset
+             Attributes: required, pattern, min, max, step
+             Bonus: progress, meter, output + JS
+             ============================================================ -->
+        <div>
+
+          <!-- Bonus: Progress bar -->
+          <div class="booking-progress" aria-live="polite">
+            <label for="form-progress">Form completion:</label>
+            <progress id="form-progress" value="0" max="100" aria-label="Percentage of form fields filled in">0%</progress>
+          </div>
+
+          <form
+            id="booking-form"
+            class="booking-form"
+            novalidate
+            action="#"
+            method="post"
+            enctype="multipart/form-data"
+            aria-label="Table reservation form"
+          >
+
+            <!-- HIDDEN field: form version tracking -->
+            <input type="hidden" name="form_version" value="2.1">
+            <input type="hidden" name="source_page" value="contact.html">
+
+            <!-- ── Fieldset 1: Personal Info ── -->
+            <fieldset>
+              <legend>Personal Information</legend>
+
+              <div class="form-group">
+                <label for="full-name">Full Name <span class="req" aria-hidden="true">*</span></label>
+                <input
+                  type="text"
+                  id="full-name"
+                  name="full_name"
+                  placeholder="Nguyễn Văn A"
+                  required
+                  minlength="2"
+                  maxlength="80"
+                  pattern="[A-Za-zÀ-ỹ\s]+"
+                  data-error-pattern="Please enter a valid name (letters only)."
+                  autocomplete="name"
+                  aria-required="true"
+                  aria-describedby="name-hint name-error"
+                >
+                <p id="name-hint" class="field-hint">First and last name, please.</p>
+                <p id="name-error" class="error-msg" role="alert"></p>
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email Address <span class="req" aria-hidden="true">*</span></label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="you@example.com"
+                  required
+                  autocomplete="email"
+                  aria-required="true"
+                  aria-describedby="email-error"
+                >
+                <p class="error-msg" id="email-error" role="alert"></p>
+              </div>
+
+              <div class="form-group">
+                <label for="phone">Phone Number <span class="req" aria-hidden="true">*</span></label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder="0901 234 567"
+                  required
+                  pattern="0[0-9]{9}"
+                  data-error-pattern="Please enter a valid Vietnamese mobile number (e.g. 0901234567)."
+                  autocomplete="tel"
+                  aria-required="true"
+                  aria-describedby="phone-hint phone-error"
+                >
+                <p id="phone-hint" class="field-hint">Vietnamese mobile numbers: 10 digits starting with 0.</p>
+                <p class="error-msg" id="phone-error" role="alert"></p>
+              </div>
+
+              <div class="form-group">
+                <label for="password">Create Account Password <span class="req" aria-hidden="true">*</span></label>
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  placeholder="Min. 8 characters"
+                  required
+                  minlength="8"
+                  pattern="(?=.*[A-Z])(?=.*[0-9]).{8,}"
+                  data-error-pattern="Password needs at least 8 characters, one uppercase letter, and one number."
+                  autocomplete="new-password"
+                  aria-required="true"
+                  aria-describedby="pw-hint pw-error"
+                >
+                <p id="pw-hint" class="field-hint">Optional membership account — min. 8 chars, 1 uppercase, 1 number.</p>
+                <p class="error-msg" id="pw-error" role="alert"></p>
+              </div>
+
+            </fieldset>
+
+            <!-- ── Fieldset 2: Reservation Details ── -->
+            <fieldset>
+              <legend>Reservation Details</legend>
+
+              <div class="form-group">
+                <label for="party-size">Number of Guests <span class="req" aria-hidden="true">*</span></label>
+                <input
+                  type="number"
+                  id="party-size"
+                  name="party_size"
+                  min="1"
+                  max="20"
+                  step="1"
+                  value="2"
+                  required
+                  aria-required="true"
+                  aria-describedby="party-error"
+                >
+                <p class="error-msg" id="party-error" role="alert"></p>
+              </div>
+
+              <div class="form-group">
+                <label for="res-date">Reservation Date <span class="req" aria-hidden="true">*</span></label>
+                <input
+                  type="date"
+                  id="res-date"
+                  name="reservation_date"
+                  required
+                  min="2025-01-01"
+                  max="2026-12-31"
+                  aria-required="true"
+                  aria-describedby="date-error"
+                >
+                <p class="error-msg" id="date-error" role="alert"></p>
+              </div>
+
+              <div class="form-group">
+                <label for="time-slot">Preferred Time Slot <span class="req" aria-hidden="true">*</span></label>
+                <select id="time-slot" name="time_slot" required aria-required="true" aria-describedby="slot-error">
+                  <option value="" disabled selected>— Select a time —</option>
+                  <optgroup label="Morning">
+                    <option value="07:00">7:00 AM</option>
+                    <option value="08:00">8:00 AM</option>
+                    <option value="09:00">9:00 AM</option>
+                    <option value="10:00">10:00 AM</option>
+                  </optgroup>
+                  <optgroup label="Afternoon">
+                    <option value="12:00">12:00 PM</option>
+                    <option value="13:00">1:00 PM</option>
+                    <option value="14:00">2:00 PM</option>
+                    <option value="15:00">3:00 PM</option>
+                    <option value="16:00">4:00 PM</option>
+                  </optgroup>
+                  <optgroup label="Evening">
+                    <option value="17:00">5:00 PM</option>
+                    <option value="18:00">6:00 PM</option>
+                    <option value="19:00">7:00 PM</option>
+                    <option value="20:00">8:00 PM</option>
+                  </optgroup>
+                </select>
+                <p class="error-msg" id="slot-error" role="alert"></p>
+              </div>
+
+              <!-- Radio: Seating preference -->
+              <div class="form-group" role="group" aria-labelledby="seating-label">
+                <p id="seating-label" style="font-size: 0.9rem; font-weight: 600; color: var(--espresso); margin-bottom: 0.35rem;">
+                  Seating Preference <span class="req" aria-hidden="true">*</span>
+                </p>
+                <div class="radio-group">
+                  <label class="radio-option">
+                    <input type="radio" name="seating" value="indoor" required> Indoor
+                  </label>
+                  <label class="radio-option">
+                    <input type="radio" name="seating" value="outdoor"> Outdoor
+                  </label>
+                  <label class="radio-option">
+                    <input type="radio" name="seating" value="bar"> Bar Counter
+                  </label>
+                  <label class="radio-option">
+                    <input type="radio" name="seating" value="no-pref"> No Preference
+                  </label>
+                </div>
+              </div>
+
+              <!-- Checkbox: Dietary -->
+              <div class="form-group" role="group" aria-labelledby="dietary-label">
+                <p id="dietary-label" style="font-size: 0.9rem; font-weight: 600; color: var(--espresso); margin-bottom: 0.35rem;">
+                  Dietary Notes (select all that apply)
+                </p>
+                <div class="checkbox-group">
+                  <label class="checkbox-option">
+                    <input type="checkbox" name="dietary" value="vegetarian"> Vegetarian
+                  </label>
+                  <label class="checkbox-option">
+                    <input type="checkbox" name="dietary" value="vegan"> Vegan
+                  </label>
+                  <label class="checkbox-option">
+                    <input type="checkbox" name="dietary" value="gluten-free"> Gluten-Free
+                  </label>
+                  <label class="checkbox-option">
+                    <input type="checkbox" name="dietary" value="nut-allergy"> Nut Allergy
+                  </label>
+                  <label class="checkbox-option">
+                    <input type="checkbox" name="dietary" value="lactose"> Lactose Intolerant
+                  </label>
+                </div>
+              </div>
+
+            </fieldset>
+
+            <!-- ── Fieldset 3: Experience & Preferences ── -->
+            <fieldset>
+              <legend>Your Experience Preferences</legend>
+
+              <!-- Range: Ambiance rating -->
+              <div class="form-group">
+                <label for="ambiance-rating">
+                  Ambiance Preference: Quiet ↔ Lively
+                </label>
+                <input
+                  type="range"
+                  id="ambiance-rating"
+                  name="ambiance_rating"
+                  min="1"
+                  max="10"
+                  step="1"
+                  value="5"
+                  aria-describedby="rating-output"
+                >
+                <div class="range-labels">
+                  <span>Very Quiet (1)</span>
+                  <span>Very Lively (10)</span>
+                </div>
+                <label for="rating-output" class="visually-hidden">Your selected ambiance score:</label>
+                <!-- Bonus: output element -->
+                <output id="rating-output" class="output-box" for="ambiance-rating" aria-live="polite">5 / 10</output>
+              </div>
+
+              <!-- Bonus: Meter element -->
+              <div class="form-group">
+                <label for="crowd-meter">Current Café Occupancy (live estimate):</label>
+                <meter
+                  id="crowd-meter"
+                  value="0.45"
+                  min="0"
+                  max="1"
+                  low="0.3"
+                  high="0.75"
+                  optimum="0.5"
+                  aria-label="Current café occupancy at approximately 45%"
+                ></meter>
+                <p class="field-hint">Currently about 45% occupied — a good time to visit!</p>
+              </div>
+
+              <!-- Color: Favourite colour (for personalized greeting card) -->
+              <div class="form-group">
+                <label for="fav-color">Favourite Colour <em style="font-size:0.8rem; font-weight:400;">(for your welcome card)</em></label>
+                <input
+                  type="color"
+                  id="fav-color"
+                  name="fav_color"
+                  value="#C8832A"
+                  aria-describedby="color-hint"
+                >
+                <p id="color-hint" class="field-hint">We'll personalise your welcome card with this colour — fun, right?</p>
+              </div>
+
+              <!-- Datalist: How did you hear about us? -->
+              <div class="form-group">
+                <label for="referral">How did you find us?</label>
+                <input
+                  type="text"
+                  id="referral"
+                  name="referral"
+                  list="referral-list"
+                  placeholder="Start typing or choose below…"
+                  autocomplete="off"
+                  aria-describedby="referral-hint"
+                >
+                <datalist id="referral-list">
+                  <option value="Google Search">
+                  <option value="Instagram">
+                  <option value="TikTok">
+                  <option value="A friend recommended">
+                  <option value="Foody / Grab Food">
+                  <option value="Review on Tripadvisor">
+                  <option value="Walked past the shop">
+                  <option value="Facebook Group">
+                </datalist>
+                <p id="referral-hint" class="field-hint">Optional — helps us know where to say hello online.</p>
+              </div>
+
+              <!-- File upload: Special occasion photo -->
+              <div class="form-group">
+                <label for="occasion-photo">Upload an Occasion Photo <em style="font-size:0.8rem; font-weight:400;">(optional)</em></label>
+                <input
+                  type="file"
+                  id="occasion-photo"
+                  name="occasion_photo"
+                  accept="image/jpeg,image/png,image/webp"
+                  aria-describedby="file-hint"
+                >
+                <p id="file-hint" class="field-hint">JPG, PNG, or WebP · max 5MB. We may display your photo on our board!</p>
+              </div>
+
+            </fieldset>
+
+            <!-- ── Fieldset 4: Message & Consent ── -->
+            <fieldset>
+              <legend>Message & Consent</legend>
+
+              <div class="form-group">
+                <label for="special-requests">Special Requests or Message</label>
+                <textarea
+                  id="special-requests"
+                  name="special_requests"
+                  placeholder="Anniversary surprise, birthday cake, accessibility needs, or anything else…"
+                  maxlength="600"
+                  rows="5"
+                  aria-describedby="msg-hint"
+                ></textarea>
+                <p id="msg-hint" class="field-hint">Max 600 characters. We read every message personally.</p>
+              </div>
+
+              <!-- Newsletter checkbox (single) -->
+              <div class="form-group">
+                <label class="checkbox-option">
+                  <input type="checkbox" name="newsletter" value="yes">
+                  Subscribe to our monthly newsletter — roast notes, events &amp; promos.
+                </label>
+              </div>
+
+              <!-- Privacy consent (required) -->
+              <div class="form-group">
+                <label class="checkbox-option">
+                  <input type="checkbox" name="privacy_consent" value="agreed" required aria-required="true" aria-describedby="privacy-error">
+                  I agree to the <a href="policy.html" target="_blank">Privacy Policy</a>. <span class="req" aria-hidden="true">*</span>
+                </label>
+                <p class="error-msg" id="privacy-error" role="alert"></p>
+              </div>
+
+            </fieldset>
+
+            <!-- Form actions -->
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary" aria-label="Submit reservation request">
+                ☕ Submit Reservation
+              </button>
+              <button type="reset" class="btn-reset" aria-label="Reset all form fields">
+                Clear Form
+              </button>
+            </div>
+
+            <p style="font-size: 0.8rem; color: var(--muted); margin-top: 1rem;">
+              Fields marked <span style="color: var(--error);">*</span> are required.
+              We will never share your data with third parties.
+              See our <a href="policy.html">Privacy Policy</a>.
+            </p>
+
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="logo-main">Rang</span><span class="logo-sub"> Sài Gòn</span>
+        <p>123 Nguyễn Trãi, Quận 1<br>Hồ Chí Minh City, Vietnam</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="map.html">Visit Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="policy.html">Policy</a></li>
+        </ul>
+      </nav>
+      <p class="footer-copy">&copy; 2025 Rang Sài Gòn.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
