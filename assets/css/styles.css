@@ -1,6 +1,6 @@
 /* ==============================================
-   RANG SÀI GÒN — styles.css
-   Author: Student Project
+   Huy SÀI GÒN — styles.css
+   Author: Huy Project
    ============================================== */
 
 /* ---------- CSS Variables ---------- */
@@ -822,4 +822,3 @@ meter {
   .card-grid { grid-template-columns: 1fr; }
   .blog-grid  { grid-template-columns: 1fr; }
 }
-
