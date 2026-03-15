@@ -1,4 +1,4 @@
-# ☕ Rang Sài Gòn — Web Project
+# ☕ Huy Sài Gòn — Web Project
 
 A 8-page coffee shop website built for a Web Development course (HTML5 / CSS3 / JS).
 
@@ -75,7 +75,7 @@ A 8-page coffee shop website built for a Web Development course (HTML5 / CSS3 / 
 ## 📁 Folder Structure
 
 ```
-rang-sai-gon/
+Huy-sai-gon/
 ├── index.html
 ├── about.html
 ├── menu.html
@@ -105,7 +105,7 @@ rang-sai-gon/
 3. Live URL will be: `https://<username>.github.io/<repo-name>/`
 
 **Deploy to Netlify:**
-1. Drag the `rang-sai-gon/` folder into [netlify.com/drop](https://app.netlify.com/drop)
+1. Drag the `huy-sai-gon/` folder into [netlify.com/drop](https://app.netlify.com/drop)
 2. Or connect GitHub repo for continuous deployment
 
 ## 🖼️ Credits
