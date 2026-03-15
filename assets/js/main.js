@@ -1,6 +1,4 @@
-/* ==============================================
-   RANG SÀI GÒN — main.js
-   ============================================== */
+/* Huy SÀI GÒN — main.js */
 
 // ---------- Mobile Nav Toggle ----------
 const navToggle = document.querySelector('.nav-toggle');
